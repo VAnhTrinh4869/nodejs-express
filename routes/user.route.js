@@ -12,9 +12,9 @@ router.get('/cookie', (req, res, next) =>{
     res.send('something');
 });
 
-router.get('/search', userController.search);
+router.get('/search',  userController.search);
 
-router.get('/create', userController.create);
+router.get('/create',  userController.create);
 
 router.get('/:id', userController.get);
 

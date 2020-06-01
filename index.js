@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 
 var userRoute = require('./routes/user.route');
+var authRoute = require('./routes/auth.route');
+var authentication = require('./middleware/auth.middleware');
 
 var port = 9000;
 var app = express();
@@ -22,7 +24,8 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.use('/users',userRoute);
+app.use('/users',authentication.requireAuth, userRoute);
+app.use('/auth',authRoute);
 
 app.listen(port, () => console.log(`Server running in port ${port}`));
 
