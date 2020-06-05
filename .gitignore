@@ -2,3 +2,4 @@ node_modules
 db.json
 .env
 public/uploads
+package-lock.json
